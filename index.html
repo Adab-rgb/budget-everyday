@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Budget for Everyday</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Budget for Everyday</h1>
+            <p>Track your daily spending and stay within your monthly budget</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Monthly Income Input Section -->
+            <div class="income-section">
+                <h2>Monthly Income Setup</h2>
+                <div class="input-group">
+                    <label for="monthlyIncome">Monthly Income ($):</label>
+                    <input type="number" id="monthlyIncome" placeholder="Enter your monthly income" min="0" step="0.01">
+                    <button id="setIncomeBtn">Set Income</button>
+                </div>
+                <div class="month-info">
+                    <p>Current Month: <span id="currentMonth"></span></p>
+                    <p>Days in Month: <span id="daysInMonth"></span></p>
+                    <p>Daily Budget: <span id="dailyBudget">$0.00</span></p>
+                </div>
+            </div>
+
+            <!-- Daily Balance Input Section -->
+            <div class="spending-section">
+                <h2>Daily Balance Tracker</h2>
+                <div class="input-group">
+                    <label for="dailyBalance">Current Balance ($):</label>
+                    <input type="number" id="dailyBalance" placeholder="Enter your current balance" min="0" step="0.01">
+                    <button id="addBalanceBtn">Update Balance</button>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="summary-section">
+                <h2>Budget Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h3>Remaining Budget</h3>
+                        <p id="remainingBudget">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Days Remaining</h3>
+                        <p id="daysRemaining">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Max Daily Spend</h3>
+                        <p id="maxDailySpend">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Today's Spending</h3>
+                        <p id="todaySpending">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Total Spent</h3>
+                        <p id="totalSpent">$0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maximum Spending Alert -->
+            <div class="max-spending-alert">
+                <h2>💰 Daily Budget for Remaining Days</h2>
+                <div class="max-spending-content">
+                    <div class="max-spending-main">
+                        <h3>Total Remaining Budget:</h3>
+                        <p id="maxTotalSpend" class="max-amount">$0.00</p>
+                        <p class="max-description">in the remaining <span id="daysRemainingText">0</span> days of this month</p>
+                    </div>
+                    <div class="max-spending-breakdown">
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Average Per Day:</span>
+                            <span class="breakdown-value" id="maxDailySpendBreakdown">$0.00</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Per Week:</span>
+                            <span class="breakdown-value" id="maxWeeklySpend">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Budget Breakdown -->
+            <div class="daily-budget-breakdown">
+                <h2>📅 Daily Budget for Each Remaining Day</h2>
+                <div class="daily-budget-grid" id="dailyBudgetGrid">
+                    <!-- Daily budget cards will be generated here -->
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <h2>Spending Analysis</h2>
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Spending History -->
+            <div class="history-section">
+                <h2>Spending History</h2>
+                <div class="history-controls">
+                    <button id="clearHistoryBtn">Clear History</button>
+                    <button id="exportDataBtn">Export Data</button>
+                </div>
+                <div class="history-list" id="spendingHistory">
+                    <!-- Spending entries will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
